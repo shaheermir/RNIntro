@@ -5,7 +5,11 @@ const Button = () => {
   const { buttonStyle, textStyle } = styles
   return (
     <TouchableOpacity style={buttonStyle} onPress={() => console.log('pressed')}>
+<<<<<<< HEAD
       <Text style={textStyle}>Click Me!</Text>
+=======
+      <Text style={textStyle}>Link to Album</Text>
+>>>>>>> a29209839e9220fd805079a236617718c7780e99
     </TouchableOpacity>
   )
 }
