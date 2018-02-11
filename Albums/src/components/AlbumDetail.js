@@ -8,7 +8,13 @@ import Button from './Button'
 
 const AlbumDetail = props => {
   const { title, artist, thumbnail_image: thumbnailImage, image } = props.album
-  const { headerContentStyle, thumbnailStyle, thumbnailContainerStyle, headerTextStyle, imageStyle } = styles
+  const {
+    headerContentStyle,
+    thumbnailStyle,
+    thumbnailContainerStyle,
+    headerTextStyle,
+    imageStyle
+  } = styles
 
   return (
     <Card>
@@ -42,8 +48,8 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   thumbnailStyle: {
-    width: 60,
-    height: 60
+    width: 70,
+    height: 70
   },
   thumbnailContainerStyle: {
     justifyContent: 'center',
