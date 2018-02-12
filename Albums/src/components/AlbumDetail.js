@@ -1,16 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, Linking } from 'react-native'
 
 import Card from './Card'
 import CardSection from './CardSection'
 import Button from './Button'
 
 const AlbumDetail = props => {
-  const { title, artist, thumbnail_image: thumbnailImage, image } = props.album
-<<<<<<< HEAD
-  const { headerContentStyle, thumbnailStyle, thumbnailContainerStyle, headerTextStyle, imageStyle } = styles
-=======
+  const { title, artist, thumbnail_image: thumbnailImage, image, url } = props.album
   const {
     headerContentStyle,
     thumbnailStyle,
@@ -18,7 +15,6 @@ const AlbumDetail = props => {
     headerTextStyle,
     imageStyle
   } = styles
->>>>>>> a29209839e9220fd805079a236617718c7780e99
 
   return (
     <Card>
@@ -37,7 +33,7 @@ const AlbumDetail = props => {
       </CardSection>
 
       <CardSection>
-        <Button />
+        <Button onPress={() => Linking.openURL(url)}>Buy Now</Button>
       </CardSection>
     </Card>
   )
@@ -52,13 +48,8 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   thumbnailStyle: {
-<<<<<<< HEAD
-    width: 60,
-    height: 60
-=======
     width: 70,
     height: 70
->>>>>>> a29209839e9220fd805079a236617718c7780e99
   },
   thumbnailContainerStyle: {
     justifyContent: 'center',

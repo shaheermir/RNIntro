@@ -1,15 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-const Button = () => {
+const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles
   return (
-    <TouchableOpacity style={buttonStyle} onPress={() => console.log('pressed')}>
-<<<<<<< HEAD
-      <Text style={textStyle}>Click Me!</Text>
-=======
-      <Text style={textStyle}>Link to Album</Text>
->>>>>>> a29209839e9220fd805079a236617718c7780e99
+    <TouchableOpacity style={buttonStyle} onPress={onPress}>
+      <Text style={textStyle}>{children}</Text>
     </TouchableOpacity>
   )
 }
@@ -34,5 +31,10 @@ const styles = StyleSheet.create({
     paddingBottom: 10
   }
 })
+
+Button.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+}
 
 export default Button
