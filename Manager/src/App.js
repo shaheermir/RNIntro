@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import firebase from 'firebase'
 
 import rootReducer from './reducers'
+import LoginForm from './components/LoginForm'
 
 const store = createStore(rootReducer)
 
@@ -24,9 +24,7 @@ class App extends React.Component {
   render () {
     return (
       <Provider store={store}>
-        <View>
-          <Text>Hello!</Text>
-        </View>
+        <LoginForm />
       </Provider>
     )
   }
