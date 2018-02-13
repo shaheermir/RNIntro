@@ -1,12 +1,13 @@
 import React from 'react'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import firebase from 'firebase'
+import ReduxThunk from 'redux-thunk'
 
 import rootReducer from './reducers'
 import LoginForm from './components/LoginForm'
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, {}, applyMiddleware(ReduxThunk))
 
 class App extends React.Component {
   componentWillMount () {
