@@ -1,7 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import firebase from 'firebase'
-import LoginForm from './components/LoginForm'
+
+import Router from './config/router'
 import store from './config/store'
 
 class App extends React.Component {
@@ -20,7 +21,7 @@ class App extends React.Component {
   render () {
     return (
       <Provider store={store}>
-        <LoginForm />
+        <Router />
       </Provider>
     )
   }

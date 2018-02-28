@@ -7,6 +7,8 @@ import {
   LOGIN_USER
 } from './types'
 
+import { Actions } from 'react-native-router-flux'
+
 export const createEmailUpdateAction = email => {
   return {
     type: EMAIL_CHANGED,
@@ -45,4 +47,6 @@ const loginUserFail = dispatch => {
 
 const loginUserSuccess = (dispatch, user) => {
   dispatch({ type: LOGIN_USER_SUCCESS, payload: user })
+
+  Actions.main()
 }
