@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
 const CardSection = props => {
-  return <View style={styles.containerStyles}>{props.children}</View>
+  return <View style={[styles.containerStyles, props.style]}>{props.children}</View>
 }
 
 const styles = StyleSheet.create({
@@ -19,10 +19,9 @@ const styles = StyleSheet.create({
 })
 
 CardSection.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+    .isRequired,
+  style: PropTypes.object
 }
 
 export { CardSection }
