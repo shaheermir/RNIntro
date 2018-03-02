@@ -2,11 +2,16 @@ import React from 'react'
 import { Picker, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { employeeUpdate } from '../actions'
 
 import { Card, CardSection, Input, Button } from './common'
+import { employeeUpdate, employeeCreate } from '../actions'
 
 class EmployeeCreate extends React.Component {
+  onButtonPress = () => {
+    const { name, phone, shift } = this.props
+    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' })
+  }
+
   render () {
     return (
       <Card>
@@ -45,7 +50,7 @@ class EmployeeCreate extends React.Component {
         </CardSection>
 
         <CardSection>
-          <Button>Create</Button>
+          <Button onPress={this.onButtonPress}>Create</Button>
         </CardSection>
       </Card>
     )
@@ -63,7 +68,8 @@ EmployeeCreate.propTypes = {
   name: PropTypes.string,
   phone: PropTypes.string,
   shift: PropTypes.string,
-  employeeUpdate: PropTypes.func
+  employeeUpdate: PropTypes.func,
+  employeeCreate: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -72,7 +78,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  employeeUpdate: ({ prop, value }) => dispatch(employeeUpdate({ prop, value }))
+  employeeUpdate: ({ prop, value }) => dispatch(employeeUpdate({ prop, value })),
+  employeeCreate: ({ name, phone, shift }) => dispatch(employeeCreate({ name, phone, shift }))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmployeeCreate)
