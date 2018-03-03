@@ -56,3 +56,17 @@ export const employeeSaveChanges = ({ name, phone, shift, uid }) => {
 export const clearEmployeeForm = () => ({
   type: CLEAR_EMPLOYEE_FORM
 })
+
+export const employeeDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth()
+
+  return () => {
+    return firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .remove()
+      .then(() => {
+        Actions.pop()
+      })
+  }
+}
