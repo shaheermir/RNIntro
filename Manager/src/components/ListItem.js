@@ -1,17 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Text } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import { Text, TouchableOpacity } from 'react-native'
 
 import { CardSection } from './common'
 
 class ListItem extends React.Component {
+  onRowPress = () => {
+    Actions.employeeEdit({ employee: this.props.employee })
+  }
+
   render () {
     const { name } = this.props.employee
 
     return (
-      <CardSection>
-        <Text style={styles.title}>{name}</Text>
-      </CardSection>
+      <TouchableOpacity onPress={this.onRowPress}>
+        <CardSection>
+          <Text style={styles.title}>{name}</Text>
+        </CardSection>
+      </TouchableOpacity>
     )
   }
 }
